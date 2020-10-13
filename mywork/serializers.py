@@ -19,5 +19,5 @@ class ProductListSerializer(serializers.ModelSerializer):
 
 
 class ProductCreateSerializer(serializers.ModelSerializer):
-    """ Создание Поста """
+    """ Просмотр  Продукта """
     date_joined = serializers.ReadOnlyField()
