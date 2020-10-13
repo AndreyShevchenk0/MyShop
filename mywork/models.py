@@ -9,7 +9,7 @@ User = get_user_model()
 class Product(models.Model):
     """ Модель продукта """
 
-    #user = models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     #kanban1 = models.ForeignKey(Kontakt, blank=False, on_delete=models.CASCADE, verbose_name='наследование конт.')
     name_product = models.CharField(max_length=100, verbose_name='товар')
     price = models.IntegerField(default=0, verbose_name='цена')
@@ -35,7 +35,6 @@ class deal(models.Model):
         ('оплачен', 'Оплачен'),
     ]
 
-    #slug = models.SlugField(max_length=250, verbose_name='получ.тов')  #  unique_for_date='получение товара',
     time = models.DateTimeField(auto_now_add=True,)
     #kanban = models.ForeignKey(Kontakt, on_delete=models.CASCADE, verbose_name='имя заказчика')
     statu = models.CharField(max_length=10, choices=CATEGORY, default='Ожидание', verbose_name='статус заказа')
@@ -84,6 +83,8 @@ class accountant(models.Model):
 
     kanban3 = models.ForeignKey(Product, blank=False, on_delete=models.CASCADE, verbose_name='товар')
     kanban4 = models.ForeignKey(deal, blank=False, on_delete=models.CASCADE, verbose_name='статус')
+    #kanban5 = models.ManyToManyField(Product, blank=False, verbose_name='товар+')
+    #kanban6 = models.ManyToManyField(deal, blank=False, verbose_name='статус+')
 
     # def __str__(self):
     #     return self.name_product

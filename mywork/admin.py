@@ -11,15 +11,15 @@ admin.site.register(cashier)
 
 @admin.register(accountant)
 class AccountantAdmin(admin.ModelAdmin):
-    list_display = ('kanban3', 'kanban4',)
-    search_fields = ('kanban3', 'kanban4',)
-    list_display_links = ('kanban3', 'kanban4',)
+    list_display = ['kanban3', 'kanban4']
+    search_fields = ['kanban3', 'kanban4']
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name_product', 'price',)
     actions = ['discount_20']
+    list_display = ['name_product', 'price', 'added_product', 'update_product']
+    list_filter = ['price', 'added_product', 'update_product']
 
     def discount_20(self, request, queryset):
         from math import ceil
