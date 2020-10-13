@@ -5,7 +5,7 @@ from math import ceil
 
 admin.site.register(Product)
 
-#admin.site.register(deal)
+admin.site.register(deal)
 
 admin.site.register(sales_consultant)
 
